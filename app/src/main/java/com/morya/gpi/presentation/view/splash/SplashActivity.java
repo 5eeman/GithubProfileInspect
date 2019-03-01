@@ -1,10 +1,11 @@
-package com.morya.gpi.presentation.mvvm.splash;
+package com.morya.gpi.presentation.view.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.morya.gpi.R;
-import com.morya.gpi.presentation.mvvm.main.MainActivity;
+import com.morya.gpi.presentation.view.main.MainActivity;
+import com.morya.gpi.presentation.vm.splash.SplashViewModel;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;

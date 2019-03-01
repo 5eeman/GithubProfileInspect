@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.mvvm.splash.SplashActivity">
+    tools:context=".presentation.vm.splash.SplashActivity">
 
     <ImageView
         android:id="@+id/githubImage"
@@ -28,6 +28,7 @@
         android:text="@string/app_name"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_main_header"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

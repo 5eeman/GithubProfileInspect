@@ -1,4 +1,4 @@
-package com.morya.gpi.presentation.mvvm.splash;
+package com.morya.gpi.presentation.vm.splash;
 
 import android.app.Application;
 
