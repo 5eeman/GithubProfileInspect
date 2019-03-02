@@ -1,5 +1,7 @@
 package com.morya.gpi.presentation.vm.main.item;
 
+import android.view.View;
+
 import com.morya.gpi.data.entity.User;
 
 import androidx.databinding.BaseObservable;
@@ -21,7 +23,7 @@ public class UserItemViewModel extends BaseObservable {
         notifyChange();
     }
 
-    public void onItemSelected() {
+    public void onItemSelected(View view) {
         selectAction.setValue(user);
     }
 

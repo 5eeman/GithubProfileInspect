@@ -1,7 +1,10 @@
-package com.morya.gpi.data.net;
+package com.morya.gpi.data.net.retrofit;
 
+import com.morya.gpi.data.entity.Repository;
 import com.morya.gpi.data.entity.User;
 import com.morya.gpi.data.net.response.UserSearchResponse;
+
+import java.util.List;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;
@@ -16,4 +19,6 @@ public interface RetrofitUserApi {
     @GET("users/{username}")
     Single<User> getUser(@Path("username") String username);
 
+    @GET("users/{username}/repos")
+    Single<List<Repository>> getAllRepo(@Path("username") String userName);
 }

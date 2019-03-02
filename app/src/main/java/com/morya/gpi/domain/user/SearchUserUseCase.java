@@ -2,7 +2,7 @@ package com.morya.gpi.domain.user;
 
 import com.morya.gpi.data.entity.User;
 import com.morya.gpi.data.net.response.UserSearchResponse;
-import com.morya.gpi.data.net.GithubUserApi;
+import com.morya.gpi.data.net.api.GithubUserApi;
 
 import java.util.List;
 

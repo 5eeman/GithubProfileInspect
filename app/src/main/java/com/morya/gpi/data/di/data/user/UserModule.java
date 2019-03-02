@@ -1,7 +1,7 @@
 package com.morya.gpi.data.di.data.user;
 
 import com.morya.gpi.data.di.data.network.NetworkModule;
-import com.morya.gpi.data.net.GithubUserApi;
+import com.morya.gpi.data.net.api.GithubUserApi;
 import com.morya.gpi.domain.user.GetUserUseCase;
 import com.morya.gpi.domain.user.SearchUserUseCase;
 

@@ -1,11 +1,13 @@
 package com.morya.gpi.presentation.vm.main;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.morya.gpi.data.App;
 import com.morya.gpi.data.entity.User;
 import com.morya.gpi.domain.user.SearchUserUseCase;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -16,7 +18,6 @@ import androidx.appcompat.widget.SearchView;
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
@@ -28,7 +29,7 @@ public class MainViewModel extends AndroidViewModel {
     private Subject<String> searchQuerySubject = PublishSubject.create();
     private Disposable searchDisposable;
 
-    private ObservableField<List<User>> users = new ObservableField<>();
+    private ObservableField<List<User>> users = new ObservableField<>(Collections.emptyList());
 
     private MutableLiveData<User> openUserDetailEvent = new MutableLiveData<>();
 
@@ -44,14 +45,13 @@ public class MainViewModel extends AndroidViewModel {
                 .inject(this);
 
         searchDisposable = searchQuerySubject
-                .observeOn(Schedulers.io())
                 .debounce(250, TimeUnit.MILLISECONDS)
+                .observeOn(Schedulers.io())
                 .map(query -> query.toLowerCase().trim())
                 .filter(query -> !query.isEmpty())
                 .distinct()
                 .flatMap(query -> useCase.findUsersByQuery(query))
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(results -> users.set(results));
+                .subscribe(results -> users.set(results), error -> Log.e("ERROR", "Error", error));
     }
 
     public SearchView.OnQueryTextListener getSearchListener() {

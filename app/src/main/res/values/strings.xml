@@ -2,4 +2,13 @@
     <string name="app_name">Github Profile Inspect</string>
     <string name="search">Search</string>
 
+    <plurals name="stars">
+        <item quantity="one">%d star</item>
+        <item quantity="other">%d stars</item>
+    </plurals>
+
+    <plurals name="forks">
+        <item quantity="one">%d fork</item>
+        <item quantity="other">%d forks</item>
+    </plurals>
 </resources>

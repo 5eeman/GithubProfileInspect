@@ -8,6 +8,7 @@ import com.morya.gpi.databinding.ItemUserBinding;
 import com.morya.gpi.presentation.utils.BindableAdapter;
 import com.morya.gpi.presentation.vm.main.item.UserItemViewModel;
 
+import java.util.Collections;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -17,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHolder> implements BindableAdapter<List<User>> {
 
-    private List<User> data;
+    private List<User> data = Collections.emptyList();
     private MutableLiveData<User> selectAction;
 
     public UsersAdapter(MutableLiveData<User> selectAction) {

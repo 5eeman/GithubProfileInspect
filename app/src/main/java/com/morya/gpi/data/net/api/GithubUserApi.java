@@ -1,7 +1,11 @@
-package com.morya.gpi.data.net;
+package com.morya.gpi.data.net.api;
 
+import com.morya.gpi.data.entity.Repository;
 import com.morya.gpi.data.entity.User;
 import com.morya.gpi.data.net.response.UserSearchResponse;
+import com.morya.gpi.data.net.retrofit.RetrofitUserApi;
+
+import java.util.List;
 
 import io.reactivex.Single;
 import retrofit2.Retrofit;
@@ -20,6 +24,10 @@ public class GithubUserApi {
 
     public Single<User> getUserByName(String name) {
         return api.getUser(name);
+    }
+
+    public Single<List<Repository>> getAllUserRepo(String userName) {
+        return api.getAllRepo(userName);
     }
 
 }

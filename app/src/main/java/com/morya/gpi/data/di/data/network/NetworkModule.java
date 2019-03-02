@@ -1,7 +1,7 @@
 package com.morya.gpi.data.di.data.network;
 
-import com.morya.gpi.data.net.GithubRepositoryApi;
-import com.morya.gpi.data.net.GithubUserApi;
+import com.morya.gpi.data.net.api.GithubRepositoryApi;
+import com.morya.gpi.data.net.api.GithubUserApi;
 import com.morya.gpi.data.utils.Constants;
 
 import javax.inject.Named;
@@ -9,6 +9,7 @@ import javax.inject.Named;
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.CallAdapter;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
@@ -60,6 +61,7 @@ public class NetworkModule {
     @Provides
     OkHttpClient provideHttpClient() {
         return new OkHttpClient.Builder()
+                .addNetworkInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build();
     }
 }

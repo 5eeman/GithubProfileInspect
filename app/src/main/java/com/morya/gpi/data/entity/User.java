@@ -1,5 +1,7 @@
 package com.morya.gpi.data.entity;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -8,9 +10,12 @@ import java.util.Objects;
 public class User implements Serializable { // Parcelable would be better, but obviously not needed
 
     private Integer id;
+    @SerializedName("avatar_url")
     private String avatarUrl;
     private String login;
     private Double score;
+    @SerializedName("public_repos")
+    private Integer repoCount;
 
     public Integer getId() {
         return id;
@@ -42,6 +47,14 @@ public class User implements Serializable { // Parcelable would be better, but o
 
     public void setScore(Double score) {
         this.score = score;
+    }
+
+    public Integer getRepoCount() {
+        return repoCount;
+    }
+
+    public void setRepoCount(Integer repoCount) {
+        this.repoCount = repoCount;
     }
 
     @Override
